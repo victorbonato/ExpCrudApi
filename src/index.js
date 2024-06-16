@@ -14,3 +14,8 @@ app.post("/items", (req, res) => {
   items.push(item);
   res.status(201).send(item);
 });
+
+// Read
+app.get("/items", (req, res) => {
+  res.status(200).send(items);
+});
