@@ -20,6 +20,14 @@ app.get("/items", (req, res) => {
   res.status(200).send(items);
 });
 
+// Update
+app.put("/items/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const updatedItem = req.body;
+  items = items.map((item, index) => (index === id ? updatedItem : item));
+  res.status(200).send(updatedItem);
+});
+
 // Delete
 app.delete("/items/:id", (req, res) => {
   const id = parseInt(req.params.id);
