@@ -19,3 +19,10 @@ app.post("/items", (req, res) => {
 app.get("/items", (req, res) => {
   res.status(200).send(items);
 });
+
+// Delete
+app.delete("/items/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  items = items.filter((items, index) => index !== id);
+  res.status(204).send();
+});
